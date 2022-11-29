@@ -39,7 +39,7 @@ if ($_GET['length'] >= 8) {
 } else {
     //var_dump('length non valida');
     $status = 'danger';
-    $message = 'Inserire almeno 8 caratteri';
+    $message = 'Lunghezza minima: 8 caratteri';
 }
 
 ?>
@@ -84,13 +84,27 @@ if ($_GET['length'] >= 8) {
                     <div>
                         <h5>Lunghezza Password:</h5>
                     </div>
-                    <div>
+                    <div class="pt-4">
                         <h5>Consenti ripetizione di uno o più caratteri:</h5>
                     </div>
                 </div>
                 <div class="col-6">
                     <div>
                         <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId"></label>
+                    </div>
+                    <div class="pt-4">
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ripetition" id="yes" value="1">
+                            <label class="form-check-label" for="">
+                                Si
+                            </label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="ripetition" id="no" value="0">
+                            <label class="form-check-label" for="">
+                                No
+                            </label>
+                        </div>
                     </div>
                 </div>
 
