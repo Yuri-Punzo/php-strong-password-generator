@@ -29,8 +29,10 @@ ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la pas
 
 <?php
 require __DIR__ . '/functions.php';
-
-if ($_GET['length'] >= 8) {
+if ($_GET['length'] >= 8 && !isset($_GET["check_letters"]) && !isset($_GET["check_letters"]) && !isset($_GET["check_letters"])) {
+    $status = 'danger';
+    $message = 'Seleziona almeno un tipo di carattere';
+} elseif ($_GET['length'] >= 8) {
     //var_dump('length Valida');
     $status = 'success';
     $message = 'Password: ';
@@ -94,7 +96,7 @@ if ($_GET['length'] >= 8) {
                 </div>
                 <div class="col-6">
                     <div>
-                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId" style="width: 120px;"></label>
+                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId" style="width: 120px;" value="8"></label>
                     </div>
                     <div class="pt-4">
                         <div class="form-check">
