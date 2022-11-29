@@ -28,6 +28,30 @@ ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la pas
 -->
 
 <?php
+if ($_GET['length'] >= 8) {
+    var_dump('length Valida');
+    $length = $_GET['length'];
+    $status = 'success';
+    $message = 'Password: ';
+    function passwordGenerator($length)
+    {
+        $numbers = "0123456789";
+        $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+        $specialchars = "!@#$%^&*";
+        $password = [];
+        $alphaLength = strlen($letters) - 1;
+        for ($i = 0; $i < $length; $i++) {
+            $n = rand(0, $alphaLength);
+            $password[] = $letters[$n];
+        }
+        var_dump("sono qui");
+        return implode($password);
+    };
+} else {
+    var_dump('length non valida');
+    $status = 'danger';
+    $message = 'Inserire almeno 8 caratteri';
+}
 
 ?>
 
@@ -47,16 +71,21 @@ ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la pas
     <h1 class="py-5 text-center text-white">Strong Password Generator</h1>
     <!-- /header -->
     <div class="container">
-        <div class="alert alert-primary alert-dismissible fade show" role="alert">
-            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-            <strong>Password: </strong> Ciao
-        </div>
-        <script>
-            var alertList = document.querySelectorAll('.alert');
-            alertList.forEach(function(alert) {
-                new bootstrap.Alert(alert)
-            })
-        </script>
+        <?php if (isset($_GET['length'])) : ?>
+            <div class="alert alert-<?= $status; ?> alert-dismissible fade show" role="alert">
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                <strong><?= $message; ?></strong>
+                <?php if ($_GET['length'] >= 8) : ?>
+                    <?= $password; ?>
+                <?php endif ?>
+            </div>}
+            <script>
+                var alertList = document.querySelectorAll('.alert');
+                alertList.forEach(function(alert) {
+                    new bootstrap.Alert(alert)
+                })
+            </script>
+        <?php endif; ?>
     </div>
     <!-- /answer -->
     <div class="container bg-secondary rounded-2 p-4">
