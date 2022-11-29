@@ -28,31 +28,35 @@ ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la pas
 -->
 
 <?php
+
+function passwordGenerator($length)
+{
+    /* $numbers = "0123456789"; */
+    $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    /* $specialchars = "!@#$%^&*"; */
+    $password = [];
+    $alphaLength = strlen($letters) - 1;
+    for ($i = 0; $i < $length; $i++) {
+        $n = rand(0, $alphaLength);
+        $password[] = $letters[$n];
+    }
+    var_dump(implode($password));
+    return implode($password);
+};
+
 if ($_GET['length'] >= 8) {
     var_dump('length Valida');
     $length = $_GET['length'];
     $status = 'success';
     $message = 'Password: ';
-    function passwordGenerator($length)
-    {
-        $numbers = "0123456789";
-        $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-        $specialchars = "!@#$%^&*";
-        $password = [];
-        $alphaLength = strlen($letters) - 1;
-        for ($i = 0; $i < $length; $i++) {
-            $n = rand(0, $alphaLength);
-            $password[] = $letters[$n];
-        }
-        var_dump("sono qui");
-        return implode($password);
-    };
+    passwordGenerator($length);
 } else {
     var_dump('length non valida');
     $status = 'danger';
     $message = 'Inserire almeno 8 caratteri';
 }
 
+/* var_dump(implode($password)); */
 ?>
 
 <!DOCTYPE html>
@@ -78,7 +82,7 @@ if ($_GET['length'] >= 8) {
                 <?php if ($_GET['length'] >= 8) : ?>
                     <?= $password; ?>
                 <?php endif ?>
-            </div>}
+            </div>
             <script>
                 var alertList = document.querySelectorAll('.alert');
                 alertList.forEach(function(alert) {
