@@ -90,7 +90,7 @@ if ($_GET['length'] >= 8) {
                 </div>
                 <div class="col-6">
                     <div>
-                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId"></label>
+                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId" style="width: 120px;"></label>
                     </div>
                     <div class="pt-4">
                         <div class="form-check">
@@ -105,6 +105,30 @@ if ($_GET['length'] >= 8) {
                                 No
                             </label>
                         </div>
+                    </div>
+                    <div class="pt-3">
+                        <div>
+                            <input class="form-check-input" type="checkbox" value="" name="check_letters" id="check_letters" checked>
+                            <label class="form-check-label" for="">
+                                Lettere
+                            </label>
+                        </div>
+                        <div>
+                            <input class="form-check-input" type="checkbox" value="" name="check_numbers" id="check_numbers">
+                            <label class="form-check-label" for="">
+                                Numeri
+                            </label>
+                        </div>
+                        <div>
+                            <input class="form-check-input" type="checkbox" value="" name="check_special_char" id="check_special_char">
+                            <label class="form-check-label" for="">
+                                Simboli
+                            </label>
+                        </div>
+
+
+
+
                     </div>
                 </div>
 
