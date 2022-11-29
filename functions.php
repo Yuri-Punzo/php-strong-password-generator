@@ -17,7 +17,8 @@ function passwordGenerator($length, $letters, $numbers, $specialchars, $repeat)
     if ($repeat == "yes") {
         $passwordRepeat = "";
         for ($i = 0; $i < $length; $i++) {
-            $passwordRepeat = $passwordRepeat . $password[rand(0, strlen($password) - 1)];
+            /* $passwordRepeat = $passwordRepeat . $password[rand(0, strlen($password) - 1)]; */
+            $passwordRepeat = $passwordRepeat . substr(str_shuffle($password), 0, 1);
         }
         return $passwordRepeat;
     } else {
