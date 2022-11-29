@@ -66,9 +66,9 @@ if ($_GET['length'] >= 8) {
     <title>Strong Password Generator</title>
 </head>
 
-<body class="bg-dark">
+<body class="bg-light">
 
-    <h1 class="py-5 text-center text-white">Strong Password Generator</h1>
+    <h1 class="py-5 text-center text-black">Strong Password Generator</h1>
     <!-- /header -->
     <div class="container">
         <?php if (isset($_GET['length'])) : ?>
