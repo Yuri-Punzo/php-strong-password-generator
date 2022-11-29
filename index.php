@@ -112,7 +112,7 @@ if ($_GET['length'] >= 8) {
                     </div>
                     <div class="pt-3">
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" name="check_letters" id="check_letters">
+                            <input class="form-check-input" type="checkbox" value="" name="check_letters" id="check_letters" checked>
                             <label class="form-check-label" for="">
                                 Lettere
                             </label>
@@ -129,13 +129,8 @@ if ($_GET['length'] >= 8) {
                                 Simboli
                             </label>
                         </div>
-
-
-
-
                     </div>
                 </div>
-
             </div>
             <div class="mt-1">
                 <button type="submit" class="btn btn-primary me-2">Submit</button>
@@ -145,9 +140,8 @@ if ($_GET['length'] >= 8) {
     </div>
     <!-- /form -->
 
-
-
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" crossorigin="anonymous"></script>
+    <!-- /bootstrap script -->
 </body>
 
 </html>
