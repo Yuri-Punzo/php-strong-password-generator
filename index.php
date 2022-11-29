@@ -32,10 +32,14 @@ require __DIR__ . '/functions.php';
 
 if ($_GET['length'] >= 8) {
     //var_dump('length Valida');
-    $length = $_GET['length'];
     $status = 'success';
     $message = 'Password: ';
-    $password = passwordGenerator($length);
+    $length = $_GET['length'];
+    $letters = $_GET["check_letters"];
+    $numbers = $_GET["check_numbers"];
+    $specialchars = $_GET["check_special_char"];
+    $repeat = $_GET["ripetition"];
+    $password = passwordGenerator($length, $letters, $numbers, $specialchars, $repeat);
 } else {
     //var_dump('length non valida');
     $status = 'danger';
@@ -55,9 +59,9 @@ if ($_GET['length'] >= 8) {
     <title>Strong Password Generator</title>
 </head>
 
-<body class="bg-light">
+<body class="bg-dark">
 
-    <h1 class="py-5 text-center text-black">Strong Password Generator</h1>
+    <h1 class="py-5 text-center text-white">Strong Password Generator</h1>
     <!-- /header -->
     <div class="container">
         <?php if (isset($_GET['length'])) : ?>
@@ -94,13 +98,13 @@ if ($_GET['length'] >= 8) {
                     </div>
                     <div class="pt-4">
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ripetition" id="yes" value="1">
+                            <input class="form-check-input" type="radio" name="ripetition" id="ripetition" value="yes">
                             <label class="form-check-label" for="">
                                 Si
                             </label>
                         </div>
                         <div class="form-check">
-                            <input class="form-check-input" type="radio" name="ripetition" id="no" value="0">
+                            <input class="form-check-input" type="radio" name="ripetition" id="ripetition" value="no">
                             <label class="form-check-label" for="">
                                 No
                             </label>
@@ -108,7 +112,7 @@ if ($_GET['length'] >= 8) {
                     </div>
                     <div class="pt-3">
                         <div>
-                            <input class="form-check-input" type="checkbox" value="" name="check_letters" id="check_letters" checked>
+                            <input class="form-check-input" type="checkbox" value="" name="check_letters" id="check_letters">
                             <label class="form-check-label" for="">
                                 Lettere
                             </label>

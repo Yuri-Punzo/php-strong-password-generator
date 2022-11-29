@@ -1,18 +1,26 @@
 <?php
 
-function passwordGenerator($length)
+function passwordGenerator($length, $letters, $numbers, $specialchars, $repeat)
 {
-    $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    $numbers = "0123456789";
-    $specialchars = "!@#$%^&*";
-    $password = [];
-    $alphaLength = strlen($letters) - 1;
-    $numbersLength = strlen($numbers) - 1;
-    $specialCharsLength = strlen($specialchars) - 1;
-    for ($i = 0; $i < $length; $i++) {
-        $n = rand(0, $alphaLength);
-        $password[] = $letters[$n];
+    if (isset($letters)) {
+        $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
-    //var_dump(implode($password));
-    return implode($password);
+    if (isset($numbers)) {
+        $numbers = "0123456789";
+    }
+    if (isset($specialchars)) {
+        $specialchars = "!@#$%^&*";
+    }
+
+    $password = $letters . $numbers . $specialchars;
+
+    if ($repeat == "yes") {
+        $passwordRepeat = "";
+        for ($i = 0; $i < $length; $i++) {
+            $passwordRepeat = $passwordRepeat . $password[rand(0, strlen($password) - 1)];
+        }
+        return $passwordRepeat;
+    } else {
+        return substr(str_shuffle($password), 0, $length);
+    };
 }
