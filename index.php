@@ -43,7 +43,8 @@ if ($_GET['length'] >= 8 && !isset($_GET["check_letters"]) && !isset($_GET["chec
     $specialchars = $_GET["check_special_char"];
     $repeat = $_GET["ripetition"];
     $password = passwordGenerator($length, $letters, $numbers, $specialchars, $repeat);
-}   // gestendo con min="8" il valore minimo dell'input numerico non necessito più di questo else
+}
+// gestendo con min="8" il valore minimo dell'input numerico non necessito più di questo else
 /* else {
     //var_dump('length non valida');
     $status = 'danger';
