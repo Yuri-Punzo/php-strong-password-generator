@@ -29,10 +29,11 @@ ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la pas
 
 <?php
 require __DIR__ . '/functions.php';
+
 if ($_GET['length'] >= 8 && !isset($_GET["check_letters"]) && !isset($_GET["check_letters"]) && !isset($_GET["check_letters"])) {
     $status = 'danger';
     $message = 'Seleziona almeno un tipo di carattere';
-} elseif ($_GET['length'] >= 8) {
+} else/* if ($_GET['length'] >= 8) */ {
     //var_dump('length Valida');
     $status = 'success';
     $message = 'Password: ';
@@ -42,12 +43,12 @@ if ($_GET['length'] >= 8 && !isset($_GET["check_letters"]) && !isset($_GET["chec
     $specialchars = $_GET["check_special_char"];
     $repeat = $_GET["ripetition"];
     $password = passwordGenerator($length, $letters, $numbers, $specialchars, $repeat);
-} else {
+}   // gestendo con min="8" il valore minimo dell'input numerico non necessito più di questo else
+/* else {
     //var_dump('length non valida');
     $status = 'danger';
     $message = 'Lunghezza minima: 8 caratteri';
-}
-
+} */
 ?>
 
 <!DOCTYPE html>
@@ -96,7 +97,7 @@ if ($_GET['length'] >= 8 && !isset($_GET["check_letters"]) && !isset($_GET["chec
                 </div>
                 <div class="col-6">
                     <div>
-                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId" style="width: 120px;" value="8"></label>
+                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId" style="width: 120px;" min="8" value="8"></label>
                     </div>
                     <div class="pt-4">
                         <div class="form-check">
