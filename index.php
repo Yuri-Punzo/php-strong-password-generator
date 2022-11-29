@@ -28,35 +28,20 @@ ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la pas
 -->
 
 <?php
-
-function passwordGenerator($length)
-{
-    /* $numbers = "0123456789"; */
-    $letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    /* $specialchars = "!@#$%^&*"; */
-    $password = [];
-    $alphaLength = strlen($letters) - 1;
-    for ($i = 0; $i < $length; $i++) {
-        $n = rand(0, $alphaLength);
-        $password[] = $letters[$n];
-    }
-    var_dump(implode($password));
-    return implode($password);
-};
+require __DIR__ . '/functions.php';
 
 if ($_GET['length'] >= 8) {
-    var_dump('length Valida');
+    //var_dump('length Valida');
     $length = $_GET['length'];
     $status = 'success';
     $message = 'Password: ';
-    passwordGenerator($length);
+    $password = passwordGenerator($length);
 } else {
-    var_dump('length non valida');
+    //var_dump('length non valida');
     $status = 'danger';
     $message = 'Inserire almeno 8 caratteri';
 }
 
-/* var_dump(implode($password)); */
 ?>
 
 <!DOCTYPE html>
