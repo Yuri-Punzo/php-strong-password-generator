@@ -30,7 +30,7 @@ ad una pagina dedicata che tramite $_SESSION (documentazione) recupererà la pas
 <?php
 require __DIR__ . '/functions.php';
 
-if ($_GET['length'] >= 8 && !isset($_GET["check_letters"]) && !isset($_GET["check_letters"]) && !isset($_GET["check_letters"])) {
+if (/* $_GET['length'] >= 8 &&  */!isset($_GET["check_letters"]) && !isset($_GET["check_letters"]) && !isset($_GET["check_letters"])) {
     $status = 'danger';
     $message = 'Seleziona almeno un tipo di carattere';
 } else/* if ($_GET['length'] >= 8) */ {
