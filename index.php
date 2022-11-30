@@ -98,7 +98,7 @@ if ($_GET['length'] >= 8 && !isset($_GET["check_letters"]) && !isset($_GET["chec
                 </div>
                 <div class="col-6">
                     <div>
-                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId" style="width: 120px;" min="8" value="8"></label>
+                        <input type="number" name="length" id="length" class="form-control" placeholder="" aria-describedby="helpId" style="width: 120px;" min="8" value="8" max="32"></label>
                     </div>
                     <div class="pt-4">
                         <div class="form-check">
